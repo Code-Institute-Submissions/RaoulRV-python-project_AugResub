@@ -76,10 +76,41 @@ def user_move_analysis():
                     else:
                         return j
 
-# user input
+
 def user_minus(favorite_list):
     for i in favorite_list:
         if i in user_list:
             pass
         else:
             return i
+
+# computer analyzes its own list
+def self_analysis_list():
+    if(len(computer_list) == 1):
+        for i in winner_list:
+            check = all(item in i for item in computer_list)
+            if check is True:
+                flag = False
+                for j in i:
+                    if j in user_list:
+                        flag = True
+                        break
+                if(flag == True):
+                    pass
+                else:
+                    return i
+    if len(computer_list) > 1:
+        com_move_list = subs_list(computer_list)
+        for i in com_move_list:
+            for j in winner_list:
+                check = all(item in j for item in i)
+                if check is True:
+                    flag = False
+                    for k in j:
+                        if k in user_list:
+                            flag = True
+                            break
+                    if(flag == True):
+                        pass
+                    else:
+                        return j
