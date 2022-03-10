@@ -28,6 +28,7 @@ user_list = []
 computer_list = []
 
 # tic-tac-toe matrix the program will print
+
 def print_matrix():
     print()
     for i in range(1,10):
@@ -42,3 +43,13 @@ def print_matrix():
             print()
     print()
     print()
+
+def subs_list (list):
+    temporary_list = []
+    for i in range(len(list)):
+        for j in range(i, len(list)):
+            if i == j:
+                pass
+            else:
+                temporary_list.append([list[i], list[j]])
+    return(temporary_list)
