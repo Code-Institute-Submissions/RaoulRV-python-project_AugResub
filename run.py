@@ -53,3 +53,26 @@ def subs_list (list):
             else:
                 temporary_list.append([list[i], list[j]])
     return(temporary_list)
+
+# analyzes the users move
+
+def user_move_analysis():
+    if len(user_list) == 2:
+        for i in winner_list:
+            check = all(item in i for item in user_list)
+            if check is True:
+                if i in nochance_list:
+                    pass
+                else:
+                    return i
+    if len(user_list) > 2:
+        user_move_list = subs_list(user_list)
+        for i in user_move_list:
+            for j in winner_list:
+                check = all(item in j for item in i)
+                if check is True:
+                    if j in nochance_list:
+                        pass
+                    else:
+                        return j
+
