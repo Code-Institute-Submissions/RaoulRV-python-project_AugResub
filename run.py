@@ -76,3 +76,10 @@ def user_move_analysis():
                     else:
                         return j
 
+# user input
+def user_minus(favorite_list):
+    for i in favorite_list:
+        if i in user_list:
+            pass
+        else:
+            return i
