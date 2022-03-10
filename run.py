@@ -19,7 +19,6 @@ winner_list = [
 
 nochance_list = []
 
-
 reserved_list = []
 
 # user input list
@@ -27,3 +26,19 @@ user_list = []
 
 # computer input list
 computer_list = []
+
+# tic-tac-toe matrix the program will print
+def print_matrix():
+    print()
+    for i in range(1,10):
+        if i in user_list:
+            print('1', end=' ')
+        else:
+            if i in computer_list:
+                print('0', end=' ')
+            else:
+                print('-', end=' ')
+        if i in [3,6]:
+            print()
+    print()
+    print()
