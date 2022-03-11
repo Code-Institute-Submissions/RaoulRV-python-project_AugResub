@@ -184,6 +184,7 @@ def computer_first_input():
         
         self_analysis()
 
+# checks against the winner list
         def match_computer():
     comb = list(combinations(computer_list,3))
     arr = []
@@ -209,3 +210,27 @@ def match_user():
                 return True
             else:
                 pass
+# function for user or computer input with winner print
+i=0
+while(i < 9):
+    i = i+1
+    if(i%2==0):
+        user_input()
+        print_matrix()
+        com_done = match_user()
+        if com_done == True:
+            print()
+            print('*****************************************')
+            print()
+            print("""
+                                   __ 
+ __ __              _ _ _  _      |  |
+|  |  | ___  _ _   | | | ||_| ___ |  |
+|_   _|| . || | |  | | | || ||   ||__|
+  |_|  |___||___|  |_____||_||_|_||__|
+                                      
+""")
+            print()
+            print('*****************************************')
+            print()
+            break
