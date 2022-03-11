@@ -28,6 +28,8 @@ user_list = []
 computer_list = []
 
 # tic-tac-toe matrix the program will print
+
+
 def print_matrix():
     print()
     for i in range(1, 10):
@@ -96,7 +98,7 @@ def self_analysis_list():
                     if j in user_list:
                         flag = True
                         break
-                if flag == True:
+                if flag is True:
                     pass
                 else:
                     return i
@@ -111,7 +113,7 @@ def self_analysis_list():
                         if k in user_list:
                             flag = True
                             break
-                    if flag == True:
+                    if flag is True:
                         pass
                     else:
                         return j
@@ -227,20 +229,15 @@ while i < 9:
         user_input()
         print_matrix()
         com_done = match_user()
-        if com_done == True:
+        if com_done is True:
             print()
             print("*****************************************")
             print()
-            print(
-                """
-                                   __ 
+            print("""
  __ __              _ _ _  _      |  |
 |  |  | ___  _ _   | | | ||_| ___ |  |
 |_   _|| . || | |  | | | || ||   ||__|
-  |_|  |___||___|  |_____||_||_|_||__|
-                                      
-"""
-            )
+  |_|  |___||___|  |_____||_||_|_||__|""")
             print()
             print("*****************************************")
             print()
@@ -253,25 +250,21 @@ while i < 9:
             computer_input()
             print_matrix()
             com_done = match_computer()
-            if com_done == True:
+            if com_done is True:
                 print()
                 print(
-                    "******************************************************************"
+                    "*********************************************************"
                 )
                 print()
-                print(
-                    """ 
-                                                                
+                print("""
  _____                        _              _ _ _  _           
 |     | ___  _____  ___  _ _ | |_  ___  ___ | | | ||_| ___  ___ 
 |   --|| . ||     || . || | ||  _|| -_||  _|| | | || ||   ||_ -|
 |_____||___||_|_|_||  _||___||_|  |___||_|  |_____||_||_|_||___|
-                   |_|                                          
-"""
-                )
+                   |_|""")
                 print()
                 print(
-                    "******************************************************************"
+                    "*********************************************************"
                 )
                 print()
                 break
