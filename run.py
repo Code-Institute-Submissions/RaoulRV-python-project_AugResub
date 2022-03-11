@@ -149,7 +149,7 @@ def self_analysis():
 
 # function for user input
 def user_input():
-    temp = int(input("Users Turn (1) => "))
+    temp = int(input("Users Turn (1) => \n"))
 
     if temp not in number_list:
         print("*** Input Error ***")
