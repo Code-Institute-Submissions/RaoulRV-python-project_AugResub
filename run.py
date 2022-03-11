@@ -28,7 +28,6 @@ user_list = []
 computer_list = []
 
 # tic-tac-toe matrix the program will print
-
 def print_matrix():
     print()
     for i in range(1,10):
@@ -55,7 +54,6 @@ def subs_list (list):
     return(temporary_list)
 
 # analyzes the users move
-
 def user_move_analysis():
     if len(user_list) == 2:
         for i in winner_list:
@@ -163,3 +161,25 @@ def computer_first_input():
     computer_list.append(temp)
     reserved_list.append(temp)
     print('Computers Turn (0) => ', temp)
+
+    def computer_input():
+    if(len(user_list) > 1):
+        
+# analyzes users moves or computer does self analysis based on case   
+        favourable_list = user_move_analysis()
+        if favourable_list is None:
+
+            self_analysis()
+        else:
+            fav_input = user_minus(favourable_list)
+            if fav_input in reserved_list:
+        
+                self_analysis()
+            else:
+                computer_list.append(fav_input)
+                reserved_list.append(fav_input)
+                nochance_list.append(favourable_list)
+                print('Computers Turn (0) => ', fav_input)
+    else:
+        
+        self_analysis()
