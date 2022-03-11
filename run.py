@@ -114,3 +114,30 @@ def self_analysis_list():
                         pass
                     else:
                         return j
+
+def self_minus(favorite_list):
+    for i in favorite_list:
+        if i in computer_list:
+            pass
+        else:
+            return i
+
+def minus():
+    for i in number_list:
+        if i in reserved_list:
+            pass
+        else:
+            return i
+
+def self_analysis():
+    favourable_list = self_analysis_list()
+    if favourable_list is None:
+        fav_input = minus()
+        computer_list.append(fav_input)
+        reserved_list.append(fav_input)
+        print('Computers Turn (0) => ', fav_input)
+    else:
+        fav_input = self_minus(favourable_list)
+        computer_list.append(fav_input)
+        reserved_list.append(fav_input)
+        print('Computers Turn (0) => ', fav_input)
