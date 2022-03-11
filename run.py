@@ -141,3 +141,18 @@ def self_analysis():
         computer_list.append(fav_input)
         reserved_list.append(fav_input)
         print('Computers Turn (0) => ', fav_input)
+
+# function for user input
+def user_input():
+    temp = int(input('Users Turn (1) => '))
+
+    if temp not in number_list:
+        print('*** Input Error ***')
+        user_input()
+    else:
+        if(temp in reserved_list):
+            print('*** Already Taken ***')
+            user_input()
+        else:
+            user_list.append(temp)
+            reserved_list.append(temp)
