@@ -99,7 +99,7 @@ The web app was deployed on Heroku and its using Code Institute's mock terminal 
 
 # Credits
 
--   These youtube videos for providing information about this project: [Video 1](https://www.youtube.com/watch?v=BHh654_7Cmw)
+-   These youtube videos for providing information and snippets of code about this project: [Video 1](https://www.youtube.com/watch?v=BHh654_7Cmw)
 [Video 2](https://www.youtube.com/watch?v=dK6gJw4-NCo)
 [Video 3](https://www.youtube.com/watch?v=n2o8ckO-lfk)
 
