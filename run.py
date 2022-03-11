@@ -156,3 +156,10 @@ def user_input():
         else:
             user_list.append(temp)
             reserved_list.append(temp)
+
+# function for computers first move
+def computer_first_input():
+    temp = random.choice([1,2,3,4,7])
+    computer_list.append(temp)
+    reserved_list.append(temp)
+    print('Computers Turn (0) => ', temp)
