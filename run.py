@@ -163,7 +163,7 @@ def computer_first_input():
     print('Computers Turn (0) => ', temp)
 
     def computer_input():
-    if(len(user_list) > 1):
+        if(len(user_list) > 1):
         
 # analyzes users moves or computer does self analysis based on case   
         favourable_list = user_move_analysis()
@@ -183,3 +183,29 @@ def computer_first_input():
     else:
         
         self_analysis()
+
+        def match_computer():
+    comb = list(combinations(computer_list,3))
+    arr = []
+    for ii in comb:
+        arr.append(list(ii))
+    for i in winner_list:
+        for j in arr:
+            check = all(item in i for item in j)
+            if check is True:
+                return True
+            else:
+                pass
+
+def match_user():
+    comb = list(combinations(user_list,3))
+    arr = []
+    for ii in comb:
+        arr.append(list(ii))
+    for i in winner_list:
+        for j in arr:
+            check = all(item in i for item in j)
+            if check is True:
+                return True
+            else:
+                pass
