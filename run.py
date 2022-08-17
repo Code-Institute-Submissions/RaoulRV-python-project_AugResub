@@ -57,8 +57,8 @@ def sub_list(list):
     return temp_list
 
 
-# analyzes the users move
 def user_move_analysis():
+    """analyzes the users move"""
     if len(user_list) == 2:
         for i in winner_list:
             check = all(item in i for item in user_list)
@@ -87,8 +87,8 @@ def user_minus(fav_list):
             return i
 
 
-# computer analyzes its own list
 def self_analysis_list():
+    """computer analyzes its own list"""
     if len(computer_list) == 1:
         for i in winner_list:
             check = all(item in i for item in computer_list)
@@ -149,24 +149,30 @@ def self_analysis():
         print("Computers Turn (0) => ", fav_input)
 
 
-# function for user input
 def user_input():
-    temp = int(input("Users Turn (1) => \n"))
+    """function for user input"""
+
+    temp = ""
+    try:
+        temp = int(input("Users Turn (1) => \n"))
+    except:
+        print("*** Invalid input ***")
+        return user_input()
 
     if temp not in number_list:
         print("*** Input Error ***")
-        user_input()
+        return user_input()
     else:
         if temp in reserved_list:
             print("*** Slot Taken ***")
-            user_input()
+            return user_input()
         else:
             user_list.append(temp)
             reserved_list.append(temp)
 
 
-# function for computers first move
 def computer_first_input():
+    """function for computers first move"""
     temp = random.choice([1, 2, 3, 4, 7])
     computer_list.append(temp)
     reserved_list.append(temp)
@@ -175,7 +181,7 @@ def computer_first_input():
 
 def computer_input():
     if len(user_list) > 1:
-        # analyzes users moves or computer does self analysis based on case
+        """analyzes users moves or computer does self analysis based on case"""
         favourable_list = user_move_analysis()
         if favourable_list is None:
             self_analysis()
@@ -222,49 +228,54 @@ def match_user():
 
 
 # function for user or Computers Turn with winner print
-i = 0
-while i < 9:
-    i = i + 1
-    if i % 2 == 0:
-        user_input()
-        print_matrix()
-        com_done = match_user()
-        if com_done is True:
-            print()
-            print("*****************************************")
-            print()
-            print("""
- __ __              _ _ _  _      |  |
-|  |  | ___  _ _   | | | ||_| ___ |  |
-|_   _|| . || | |  | | | || ||   ||__|
-  |_|  |___||___|  |_____||_||_|_||__|""")
-            print()
-            print("*****************************************")
-            print()
-            break
-    else:
-        if i == 1:
-            computer_first_input()
+def main():
+    i = 0
+    while i < 9:
+        i = i + 1
+        if i % 2 == 0:
+            user_input()
             print_matrix()
-        else:
-            computer_input()
-            print_matrix()
-            com_done = match_computer()
+            com_done = match_user()
             if com_done is True:
                 print()
-                print(
-                    "*********************************************************"
-                )
-                print()
-                print("""
- _____                        _              _ _ _  _           
-|     | ___  _____  ___  _ _ | |_  ___  ___ | | | ||_| ___  ___ 
-|   --|| . ||     || . || | ||  _|| -_||  _|| | | || ||   ||_ -|
-|_____||___||_|_|_||  _||___||_|  |___||_|  |_____||_||_|_||___|
-                   |_|""")
+                print("*****************************************")
                 print()
                 print(
-                    "*********************************************************"
+                    """
+    __ __              _ _ _  _      |  |
+    |  |  | ___  _ _   | | | ||_| ___ |  |
+    |_   _|| . || | |  | | | || ||   ||__|
+    |_|  |___||___|  |_____||_||_|_||__|"""
                 )
+                print()
+                print("*****************************************")
                 print()
                 break
+        else:
+            if i == 1:
+                computer_first_input()
+                print_matrix()
+            else:
+                computer_input()
+                print_matrix()
+                com_done = match_computer()
+                if com_done is True:
+                    print()
+                    print("*********************************************************")
+                    print()
+                    print(
+                        """
+    _____                        _              _ _ _  _           
+    |     | ___  _____  ___  _ _ | |_  ___  ___ | | | ||_| ___  ___ 
+    |   --|| . ||     || . || | ||  _|| -_||  _|| | | || ||   ||_ -|
+    |_____||___||_|_|_||  _||___||_|  |___||_|  |_____||_||_|_||___|
+                    |_|"""
+                    )
+                    print()
+                    print("*********************************************************")
+                    print()
+                    break
+
+
+if __name__ == "__main__":
+    main()
