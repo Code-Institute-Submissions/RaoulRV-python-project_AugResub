@@ -28,10 +28,8 @@ user_list = []
 computer_list = []
 
 
-
-
 def print_matrix():
-    '''tic-tac-toe matrix the program will print'''
+    """tic-tac-toe matrix the program will print"""
     print()
     for i in range(1, 10):
         if i in user_list:
@@ -59,7 +57,7 @@ def sub_list(list):
 
 
 def user_move_analysis():
-    '''analyzes the users move'''
+    """analyzes the users move"""
     if len(user_list) == 2:
         for i in winner_list:
             check = all(item in i for item in user_list)
@@ -89,7 +87,7 @@ def user_minus(fav_list):
 
 
 def self_analysis_list():
-    '''computer analyzes its own list'''
+    """computer analyzes its own list"""
     if len(computer_list) == 1:
         for i in winner_list:
             check = all(item in i for item in computer_list)
@@ -151,21 +149,21 @@ def self_analysis():
 
 
 def user_input():
-    '''function for user input'''
+    """function for user input"""
 
     temp = ""
     try:
         temp = int(input("Users Turn (1) => \n"))
     except:
-        print("*** Invalid input ***")
+        print("*** Invalid input, please input an integer number from 1 to 9 ! ***")
         return user_input()
 
     if temp not in number_list:
-        print("*** Input Error ***")
+        print("*** Input number is outside the range of 1 to 9, please choose a number that is in that range ! ***")
         return user_input()
     else:
         if temp in reserved_list:
-            print("*** Slot Taken ***")
+            print("*** That slot is already taken by someone, please choose a different number ! ***")
             return user_input()
         else:
             user_list.append(temp)
@@ -173,7 +171,7 @@ def user_input():
 
 
 def computer_first_input():
-    '''function for computers first move'''
+    """function for computers first move"""
     temp = random.choice([1, 2, 3, 4, 7])
     computer_list.append(temp)
     reserved_list.append(temp)
@@ -181,7 +179,7 @@ def computer_first_input():
 
 
 def computer_input():
-    '''analyzes users moves or computer does self analysis based on case'''
+    """analyzes users moves or computer does self analysis based on case"""
     if len(user_list) > 1:
         favourable_list = user_move_analysis()
         if favourable_list is None:
@@ -213,9 +211,8 @@ def match_computer():
                 pass
 
 
-
 def match_user():
-    '''checks against the winner list'''
+    """checks against the winner list"""
     comb = list(combinations(user_list, 3))
     arr = []
     for ii in comb:
@@ -229,9 +226,8 @@ def match_user():
                 pass
 
 
-
 def main():
-    '''function for user or Computers Turn with winner print'''
+    """main function that also prints the correct winner"""
     i = 0
     while i < 9:
         i = i + 1
