@@ -114,12 +114,33 @@ When I have more time I would like to implement the following:
 
 The web app was deployed on Heroku and its using Code Institute's mock terminal in order to run
 
-- Steps for deployment:
-    - Fork / Clone the repository
-    -  Create a new app in heroku
-    -   Set the buildbacks to Python and NodeJS , make sure its in that order
-    -   Link the heroku app to the repository in github
-    -   Click on DEPLOY
+- Navigate to https://www.heroku.com
+
+- Log in
+
+- Click on Dashboard and then click on Create new app
+
+- Choose a name for your app
+
+- Choose a region that is closest to you
+
+- Once the app is created click on the Settings tab
+
+- Click on "config vars"
+
+- Add Config Var Key = PORT and Value = 8000
+
+- Click Add Buildback
+
+- Add Python and then Nodejs, make sure you add them in that order
+
+- Go to the deploy section and select your github profile for deployment
+
+- Search and select for the desired repo name
+
+- Click on Deploy Branch
+
+- Done!
 
 
 
