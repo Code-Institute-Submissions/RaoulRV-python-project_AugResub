@@ -81,10 +81,9 @@ When I have more time I would like to implement the following:
 ![pep](images/trailingwhitespace.PNG)
 
 
+# Libraries Used
+## Combinations from Itertools
 
-**Bugs**
-
-- Initially there were a few bugs regarding my use of "==" instead of "is" for conditionals, however I just replaced "==" with "is" and the bugs no longer persist
 
 # Deployment
 
@@ -97,6 +96,8 @@ The web app was deployed on Heroku and its using Code Institute's mock terminal 
     -   Link the heroku app to the repository in github
     -   Click on DEPLOY
 
+
+
 # Credits
 
 -   These youtube videos for providing information and snippets of code about this project: [Video 1](https://www.youtube.com/watch?v=BHh654_7Cmw)
@@ -105,4 +106,12 @@ The web app was deployed on Heroku and its using Code Institute's mock terminal 
 
 
 
+# Changelog
+
+Latest changes made to the website:
+- Input Validation
+    - Added more extensive input validation and error checking
+    - Fixed issue where inputting a non integer would crash the program
+    - Added better feedback messages that tell the user what he did wrong ([example](https://i.imgur.com/EyTs1KP.png))
+- Added "start screen" that includes information about the game and how to play it (example)
 
