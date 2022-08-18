@@ -45,9 +45,15 @@ Play against the computer and have fun trying to outsmart it in order to win! [l
 **Input validating and error checking**
 
 - The program doesn't allow the user to input a value on the same space as an existing one or input some number isn't on the matrix location
-- It will return the message "Slot Taken"
+- I have made sure to include and handle every possible situation where the user could input the wrong thing:
+    - If the user inputs a number that is outside of the games range (1-9) it will print out error message and detailed instructions
 
-![error](images/tictacerror.PNG)
+    - If the user inputs a slot that is already being used by either computer or player, the program will instruct user that the slot is already taken
+
+    - If the user types a non integer value or a blank value the program will print out an error message and instructions about what to input
+
+
+![error](images/feedbackmessage.PNG)
 
 
 # Features left to implement
@@ -71,6 +77,17 @@ When I have more time I would like to implement the following:
 
 - When given invalid inputs the program will not let you continue
 
+## Defensive Application Testing
+| Feature| Acceptance Criteria | Tests Carried out | Result |  
+| --- | --- | --- | --- | 
+| Inputting an integer| User can input an integer from 1 to 9 but nothing outside of that range | Inputted an integer outside of the 1 to 9 range, in this case the number 11| Pass |
+| Inputting a non integer| User should not be able to input anything else than an integer | Inputted a non integer, in this case the letter F| Pass |
+| Slot Checking| User should only be allowed to input a number corresponding to a slot that is not already occupied | Inputted a number corresponding to a slot occupied by the computer and then to a slot occupied by the player| Pass |
+| Multiple errors| Program should be able to handle multiple errors in a row and still continue normally | Inputted multiple different wrong values about 10 times and then inputted a correct value| Pass |
+| Computer Win| Program should print "computer win" message when 3 "O's" are arranged in a row| Let the computer win by not getting in its way| Pass |
+| Player Win| Program should print "you win" once you get 3 "1's" in a row | Played and beat the computer at tic tac toe| Pass |
+
+
 
 **Validator Testing**
 
@@ -81,8 +98,16 @@ When I have more time I would like to implement the following:
 ![pep](images/trailingwhitespace.PNG)
 
 
-# Libraries Used
-## Combinations from Itertools
+# Libraries and Modules
+
+- In order for the code to execute properly and achieve desired results I have used the following:
+
+## Itertools - Combinations 
+
+- Itertools implements a number of iterator building blocks, it standardizes a core set of fast, memory efficient tools. They form an iterator algebra making it possible to construct specialized tools succinctly and efficiently in Python.
+
+- From itertools I chose to use the "combinations" module because it had all the attributes I needed for my code, it keeps the input in sorted order if its already sorted and there are no repeated elements.
+- I used it specifically in the function that checks for every possible combination for both the computers side and the players side. This checks every possible combination of 3 positions on each row of the tic tac toe board due to the games rules. After that the function compares the computer or the players imput against the "winning list". 
 
 
 # Deployment
@@ -113,5 +138,8 @@ Latest changes made to the website:
     - Added more extensive input validation and error checking
     - Fixed issue where inputting a non integer would crash the program
     - Added better feedback messages that tell the user what he did wrong ([example](https://i.imgur.com/EyTs1KP.png))
+    - Fleshed out the "Input Validation" section in the readme.md
 - Added "start screen" that includes information about the game and how to play it (example)
+- Added "Libraries and Modules" section in readme.md
+- Added "Defensive Application Testing" section in readme.md
 
