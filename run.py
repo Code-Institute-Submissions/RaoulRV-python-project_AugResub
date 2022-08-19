@@ -165,18 +165,18 @@ def user_input():
     try:
         temp = int(input("Users Turn (1) => \n"))
     except:
-        print("*** Invalid input, please input an integer number from 1 to 9 ! ***")
+        print("*Invalid input, please input an integer number from 1 to 9 !*")
         return user_input()
 
     if temp not in number_list:
         print(
-            "*** Input number is outside the range of 1 to 9, please choose a number that is in that range ! ***"
+            "*Input number is outside the range of 1 to 9, please choose a number that is in that range !*"
         )
         return user_input()
     else:
         if temp in reserved_list:
             print(
-                "*** That slot is already taken by someone, please choose a different number ! ***"
+                "*That slot is already taken by someone, please choose a different number ! *"
             )
             return user_input()
         else:
@@ -313,10 +313,11 @@ def main():
                     print()
                     print(
                         """
-█████████████████████████████████████████████████████████████████████████████████
-█─▄▄▄─█─▄▄─█▄─▀█▀─▄█▄─▄▄─█▄─██─▄█─▄─▄─█▄─▄▄─█▄─▄▄▀███▄─█▀▀▀█─▄█▄─▄█▄─▀█▄─▄█─▄▄▄▄█
-█─███▀█─██─██─█▄█─███─▄▄▄██─██─████─████─▄█▀██─▄─▄████─█─█─█─███─███─█▄▀─██▄▄▄▄─█
-▀▄▄▄▄▄▀▄▄▄▄▀▄▄▄▀▄▄▄▀▄▄▄▀▀▀▀▄▄▄▄▀▀▀▄▄▄▀▀▄▄▄▄▄▀▄▄▀▄▄▀▀▀▀▄▄▄▀▄▄▄▀▀▄▄▄▀▄▄▄▀▀▄▄▀▄▄▄▄▄▀"""
+
+██████████████████████████████████████████████
+█▄─█─▄█─▄▄─█▄─██─▄███▄─▄███─▄▄─█─▄▄▄▄█─▄─▄─█░█
+██▄─▄██─██─██─██─█████─██▀█─██─█▄▄▄▄─███─███▄█
+▀▀▄▄▄▀▀▄▄▄▄▀▀▄▄▄▄▀▀▀▀▄▄▄▄▄▀▄▄▄▄▀▄▄▄▄▄▀▀▄▄▄▀▀▄▀"""
                     )
                     print()
                     print("*********************************************************")
@@ -362,7 +363,7 @@ def play_game():
     7 8 9
     """)
 
-    start_game = input("***Do you want to start the game? Type yes to start the game or type anything else to exit ! *** : ")
+    start_game = input("*Do you want to start the game? Type yes to start or type anything else to exit! * : ")
 
     if start_game.lower() == "yes":
         return True
