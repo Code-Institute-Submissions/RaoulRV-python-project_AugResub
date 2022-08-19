@@ -5,7 +5,7 @@ In my version we no longer need another person or pen / paper since the game is 
 
 Play against the computer and have fun trying to outsmart it in order to win! [live version of the game](https://pythonproject3-tictactoe.herokuapp.com/)
 
-![loss](/images/tictacmain.PNG)
+![main](images/maingtictac.PNG)
 
 # How to play
 - In this version of tic tac toe the oponent (computer) will always start first
@@ -41,6 +41,12 @@ Play against the computer and have fun trying to outsmart it in order to win! [l
 
 ![win](images/tictacwin.PNG)
 ![loss](/images/tictacmain.PNG)
+
+**Draw Screen**
+
+- This happens when no one wins the game
+
+![draw](images/draw.PNG)
 
 **Input validating and error checking**
 
@@ -86,6 +92,7 @@ When I have more time I would like to implement the following:
 | Multiple errors| Program should be able to handle multiple errors in a row and still continue normally | Inputted multiple different wrong values about 10 times and then inputted a correct value| Pass |
 | Computer Win| Program should print "computer win" message when 3 "O's" are arranged in a row| Let the computer win by not getting in its way| Pass |
 | Player Win| Program should print "you win" once you get 3 "1's" in a row | Played and beat the computer at tic tac toe| Pass |
+| DRAW| Program should print "its a tie" when no side wins the game | Played and tried not to win or lose the game| Pass |
 
 
 
@@ -160,7 +167,9 @@ Latest changes made to the website:
     - Fixed issue where inputting a non integer would crash the program
     - Added better feedback messages that tell the user what he did wrong ([example](https://i.imgur.com/EyTs1KP.png))
     - Fleshed out the "Input Validation" section in the readme.md
-- Added "start screen" that includes information about the game and how to play it (example)
+- Added "start screen" that includes information about the game and how to play it
 - Added "Libraries and Modules" section in readme.md
 - Added "Defensive Application Testing" section in readme.md
+- Added draw outcome 
+- Added better ascii text 
 
