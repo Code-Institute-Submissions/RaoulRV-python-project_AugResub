@@ -90,7 +90,7 @@ When I have more time I would like to implement the following:
 | Inputting a non integer| User should not be able to input anything else than an integer | Inputted a non integer, in this case the letter F| Pass |
 | Slot Checking| User should only be allowed to input a number corresponding to a slot that is not already occupied | Inputted a number corresponding to a slot occupied by the computer and then to a slot occupied by the player| Pass |
 | Multiple errors| Program should be able to handle multiple errors in a row and still continue normally | Inputted multiple different wrong values about 10 times and then inputted a correct value| Pass |
-| Computer Win| Program should print "computer win" message when 3 "O's" are arranged in a row| Let the computer win by not getting in its way| Pass |
+| Computer Win| Program should print "You Lost" message when 3 "O's" are arranged in a row| Let the computer win by not getting in its way| Pass |
 | Player Win| Program should print "you win" once you get 3 "1's" in a row | Played and beat the computer at tic tac toe| Pass |
 | DRAW| Program should print "its a tie" when no side wins the game | Played and tried not to win or lose the game| Pass |
 
