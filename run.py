@@ -354,16 +354,16 @@ def play_game():
     print("""
     Instead of X's and O's you will be using 0's and 1's.
     The board is stil in the classic format of 3 by 3.
-    Starting from the top left spot on the board each spot coressponds to a number.
+    Starting from top left on the board each spot coressponds to a number.
     These numbers go from 1 to 9 because there are 9 spots on the board. 
-    Choose the spot you want and type the number corresponding to that spot, like this: """)
+    Choose the spot you want and type the number corresponding to that spot""")
     print("""
     1 2 3
     4 5 6
     7 8 9
     """)
 
-    start_game = input("*Do you want to start the game? Type yes to start or type anything else to exit! * : ")
+    start_game = input("Do you want to start the game? Type yes to start or type anything else to exit! : ")
 
     if start_game.lower() == "yes":
         return True
