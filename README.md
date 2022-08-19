@@ -158,7 +158,7 @@ The web app was deployed on Heroku and its using Code Institute's mock terminal 
 [Video 3](https://www.youtube.com/watch?v=n2o8ckO-lfk)
 
 
-
+- I would also like to thank my mentor Victor who helped me fix and debug the issues with my app.
 # Changelog
 
 Latest changes made to the website:
