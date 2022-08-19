@@ -2,6 +2,7 @@ import random
 
 from itertools import combinations
 
+
 # numbers which user is allowed to input
 number_list = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
@@ -30,6 +31,7 @@ computer_list = []
 
 def print_matrix():
     """tic-tac-toe matrix the program will print"""
+    global nochance_list, user_list, computer_list, reserved_list
     print()
     for i in range(1, 10):
         if i in user_list:
@@ -46,6 +48,7 @@ def print_matrix():
 
 
 def sub_list(list):
+    global nochance_list, user_list, computer_list, reserved_list
     temp_list = []
     for i in range(len(list)):
         for j in range(i, len(list)):
@@ -58,6 +61,7 @@ def sub_list(list):
 
 def user_move_analysis():
     """analyzes the users move"""
+    global nochance_list, user_list, computer_list, reserved_list
     if len(user_list) == 2:
         for i in winner_list:
             check = all(item in i for item in user_list)
@@ -79,6 +83,7 @@ def user_move_analysis():
 
 
 def user_minus(fav_list):
+    global nochance_list, user_list, computer_list, reserved_list
     for i in fav_list:
         if i in user_list:
             pass
@@ -88,6 +93,7 @@ def user_minus(fav_list):
 
 def self_analysis_list():
     """computer analyzes its own list"""
+    global nochance_list, user_list, computer_list, reserved_list
     if len(computer_list) == 1:
         for i in winner_list:
             check = all(item in i for item in computer_list)
@@ -119,6 +125,7 @@ def self_analysis_list():
 
 
 def self_minus(fav_list):
+    global nochance_list, user_list, computer_list, reserved_list
     for i in fav_list:
         if i in computer_list:
             pass
@@ -127,6 +134,7 @@ def self_minus(fav_list):
 
 
 def minus():
+    global nochance_list, user_list, computer_list, reserved_list
     for i in number_list:
         if i in reserved_list:
             pass
@@ -135,6 +143,7 @@ def minus():
 
 
 def self_analysis():
+    global nochance_list, user_list, computer_list, reserved_list
     favourable_list = self_analysis_list()
     if favourable_list is None:
         fav_input = minus()
@@ -149,6 +158,7 @@ def self_analysis():
 
 
 def user_input():
+    global nochance_list, user_list, computer_list, reserved_list
     """function for user input"""
 
     temp = ""
@@ -159,11 +169,15 @@ def user_input():
         return user_input()
 
     if temp not in number_list:
-        print("*** Input number is outside the range of 1 to 9, please choose a number that is in that range ! ***")
+        print(
+            "*** Input number is outside the range of 1 to 9, please choose a number that is in that range ! ***"
+        )
         return user_input()
     else:
         if temp in reserved_list:
-            print("*** That slot is already taken by someone, please choose a different number ! ***")
+            print(
+                "*** That slot is already taken by someone, please choose a different number ! ***"
+            )
             return user_input()
         else:
             user_list.append(temp)
@@ -171,6 +185,7 @@ def user_input():
 
 
 def computer_first_input():
+    global nochance_list, user_list, computer_list, reserved_list
     """function for computers first move"""
     temp = random.choice([1, 2, 3, 4, 7])
     computer_list.append(temp)
@@ -179,6 +194,7 @@ def computer_first_input():
 
 
 def computer_input():
+    global nochance_list, user_list, computer_list, reserved_list
     """analyzes users moves or computer does self analysis based on case"""
     if len(user_list) > 1:
         favourable_list = user_move_analysis()
@@ -198,6 +214,7 @@ def computer_input():
 
 
 def match_computer():
+    global nochance_list, user_list, computer_list, reserved_list
     comb = list(combinations(computer_list, 3))
     arr = []
     for ii in comb:
@@ -212,6 +229,7 @@ def match_computer():
 
 
 def match_user():
+    global nochance_list, user_list, computer_list, reserved_list
     """checks against the winner list"""
     comb = list(combinations(user_list, 3))
     arr = []
@@ -226,8 +244,37 @@ def match_user():
                 pass
 
 
+game_ended = False
+
+
+def play_again():
+    global nochance_list, user_list, computer_list, reserved_list, game_ended
+    nochance_list = []
+
+    reserved_list = []
+
+    user_list = []
+
+    computer_list = []
+    game_over = input(
+        "***Want to Restart? Type yes to Restart or type anything else to exit !*** : "
+    )
+    if game_over.lower() != "yes":
+        print("***Good Bye! Thanks for playing my game!***")
+        game_ended = True
+
+    else:
+        main()
+
+
 def main():
+    global nochance_list, user_list, computer_list, reserved_list, game_ended
+
     """main function that also prints the correct winner"""
+    start_game = play_game()
+    if not start_game:
+        print("***Good Bye! Thanks for playing my game!***")
+        return
     i = 0
     while i < 9:
         i = i + 1
@@ -241,15 +288,20 @@ def main():
                 print()
                 print(
                     """
-    __ __              _ _ _  _      |  |
-    |  |  | ___  _ _   | | | ||_| ___ |  |
-    |_   _|| . || | |  | | | || ||   ||__|
-    |_|  |___||___|  |_____||_||_|_||__|"""
+
+██╗░░░██╗░█████╗░██╗░░░██╗  ░██╗░░░░░░░██╗██╗███╗░░██╗██╗
+╚██╗░██╔╝██╔══██╗██║░░░██║  ░██║░░██╗░░██║██║████╗░██║██║
+░╚████╔╝░██║░░██║██║░░░██║  ░╚██╗████╗██╔╝██║██╔██╗██║██║
+░░╚██╔╝░░██║░░██║██║░░░██║  ░░████╔═████║░██║██║╚████║╚═╝
+░░░██║░░░╚█████╔╝╚██████╔╝  ░░╚██╔╝░╚██╔╝░██║██║░╚███║██╗
+░░░╚═╝░░░░╚════╝░░╚═════╝░  ░░░╚═╝░░░╚═╝░░╚═╝╚═╝░░╚══╝╚═╝"""
                 )
                 print()
                 print("*****************************************")
                 print()
-                break
+                play_again()
+                return
+
         else:
             if i == 1:
                 computer_first_input()
@@ -264,16 +316,76 @@ def main():
                     print()
                     print(
                         """
-    _____                        _              _ _ _  _           
-    |     | ___  _____  ___  _ _ | |_  ___  ___ | | | ||_| ___  ___ 
-    |   --|| . ||     || . || | ||  _|| -_||  _|| | | || ||   ||_ -|
-    |_____||___||_|_|_||  _||___||_|  |___||_|  |_____||_||_|_||___|
-                    |_|"""
+
+░█████╗░░█████╗░███╗░░░███╗██████╗░██╗░░░██╗████████╗███████╗██████╗░  ░██╗░░░░░░░██╗██╗███╗░░██╗░██████╗
+██╔══██╗██╔══██╗████╗░████║██╔══██╗██║░░░██║╚══██╔══╝██╔════╝██╔══██╗  ░██║░░██╗░░██║██║████╗░██║██╔════╝
+██║░░╚═╝██║░░██║██╔████╔██║██████╔╝██║░░░██║░░░██║░░░█████╗░░██████╔╝  ░╚██╗████╗██╔╝██║██╔██╗██║╚█████╗░
+██║░░██╗██║░░██║██║╚██╔╝██║██╔═══╝░██║░░░██║░░░██║░░░██╔══╝░░██╔══██╗  ░░████╔═████║░██║██║╚████║░╚═══██╗
+╚█████╔╝╚█████╔╝██║░╚═╝░██║██║░░░░░╚██████╔╝░░░██║░░░███████╗██║░░██║  ░░╚██╔╝░╚██╔╝░██║██║░╚███║██████╔╝
+░╚════╝░░╚════╝░╚═╝░░░░░╚═╝╚═╝░░░░░░╚═════╝░░░░╚═╝░░░╚══════╝╚═╝░░╚═╝  ░░░╚═╝░░░╚═╝░░╚═╝╚═╝░░╚══╝╚═════╝░"""
                     )
                     print()
                     print("*********************************************************")
                     print()
-                    break
+                    play_again()
+                    return
+    if not game_ended:
+        print()
+        print("*********************************************************")
+        print()
+        print(
+            """
+        
+██╗████████╗░██████╗  ░█████╗░  ████████╗██╗███████╗██╗
+██║╚══██╔══╝██╔════╝  ██╔══██╗  ╚══██╔══╝██║██╔════╝██║
+██║░░░██║░░░╚█████╗░  ███████║  ░░░██║░░░██║█████╗░░██║
+██║░░░██║░░░░╚═══██╗  ██╔══██║  ░░░██║░░░██║██╔══╝░░╚═╝
+██║░░░██║░░░██████╔╝  ██║░░██║  ░░░██║░░░██║███████╗██╗
+╚═╝░░░╚═╝░░░╚═════╝░  ╚═╝░░╚═╝  ░░░╚═╝░░░╚═╝╚══════╝╚═╝"""
+        )
+        print()
+        print("*********************************************************")
+        print()
+        play_again()
+        game_ended = False
+        return
+
+
+def play_game():
+    print("""    
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+─██████████████─██████████─██████████████────██████████████─██████████████─██████████████────██████████████─██████████████─██████████████─
+─██░░░░░░░░░░██─██░░░░░░██─██░░░░░░░░░░██────██░░░░░░░░░░██─██░░░░░░░░░░██─██░░░░░░░░░░██────██░░░░░░░░░░██─██░░░░░░░░░░██─██░░░░░░░░░░██─
+─██████░░██████─████░░████─██░░██████████────██████░░██████─██░░██████░░██─██░░██████████────██████░░██████─██░░██████░░██─██░░██████████─
+─────██░░██───────██░░██───██░░██────────────────██░░██─────██░░██──██░░██─██░░██────────────────██░░██─────██░░██──██░░██─██░░██─────────
+─────██░░██───────██░░██───██░░██────────────────██░░██─────██░░██████░░██─██░░██────────────────██░░██─────██░░██──██░░██─██░░██████████─
+─────██░░██───────██░░██───██░░██────────────────██░░██─────██░░░░░░░░░░██─██░░██────────────────██░░██─────██░░██──██░░██─██░░░░░░░░░░██─
+─────██░░██───────██░░██───██░░██────────────────██░░██─────██░░██████░░██─██░░██────────────────██░░██─────██░░██──██░░██─██░░██████████─
+─────██░░██───────██░░██───██░░██────────────────██░░██─────██░░██──██░░██─██░░██────────────────██░░██─────██░░██──██░░██─██░░██─────────
+─────██░░██─────████░░████─██░░██████████────────██░░██─────██░░██──██░░██─██░░██████████────────██░░██─────██░░██████░░██─██░░██████████─
+─────██░░██─────██░░░░░░██─██░░░░░░░░░░██────────██░░██─────██░░██──██░░██─██░░░░░░░░░░██────────██░░██─────██░░░░░░░░░░██─██░░░░░░░░░░██─
+─────██████─────██████████─██████████████────────██████─────██████──██████─██████████████────────██████─────██████████████─██████████████─
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────"""
+        )
+    print("""Welcome to a classic game of TIC TAC TOE, here's how to play: """)
+    print("""
+    Instead of X's and O's you will be using 0's and 1's.
+    The board is stil in the classic format of 3 by 3.
+    Starting from the top left spot on the board each spot coressponds to a number.
+    These numbers go from 1 to 9 because there are 9 spots on the board. 
+    Choose the spot you want and type the number corresponding to that spot, like this: """)
+    print("""
+    1 2 3
+    4 5 6
+    7 8 9
+    """)
+
+    start_game = input("***Do you want to start the game? Type yes to start the game or type anything else to exit ! *** : ")
+
+    if start_game.lower() == "yes":
+        return True
+    else:
+        return False
 
 
 if __name__ == "__main__":
